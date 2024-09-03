@@ -16,7 +16,7 @@ elif CHOICE == 'ANC':
     #try:
      st.write('**SEARCHING ANC DATABASE**')
      conn = st.connection('gsheets', type=GSheetsConnection)
-     exist = conn.read(worksheet= 'PMTCT', usecols=list(range(34)),ttl=5)
+     exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
      df = exist.dropna(how='all')
      df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
     #except:
