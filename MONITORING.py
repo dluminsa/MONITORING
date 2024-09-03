@@ -13,38 +13,36 @@ CHOICE = st.radio('**WHICH DATABASE DO YOU WANT TO MONITOR**', options= ['ANC', 
 if not CHOICE:
      st.stop()
 elif CHOICE == 'ANC':
-    #try:
-     st.write('**SEARCHING ANC DATABASE**')
-     conn = st.connection('gsheets', type=GSheetsConnection)
-     exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
-     df = exist.dropna(how='all')
-     df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
-    #except:
-         #"POOR NETWORK, COUDN'T CONNECT TO DATABASE"
+    try:
+          st.write('**SEARCHING ANC DATABASE**')
+          conn = st.connection('gsheets', type=GSheetsConnection)
+          exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
+          df = exist.dropna(how='all')
+          df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
+    except:
+         st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
+         st.stop()
 elif CHOICE == 'DELIVERY':
     try:
         st.write('**SEARCHING DELIVERY DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
-        exist = conn.read(worksheet= 'DELIVERY', usecols=list(range(34)),ttl=5)
+        exist = conn.read(worksheet= 'DELIVERY', usecols=list(range(25)),ttl=5)
         df = exist.dropna(how='all')
         df = df.rename(columns={'DATE OF DELIVERY': 'DATEY'})
     except:
-         "POOR NETWORK, COUDN'T CONNECT TO DELIVERY DATABASE"
+         st.write("POOR NETWORK, COUDN'T CONNECT TO DELIVERY DATABASE")
+          st.stop()
 elif CHOICE == 'PCR':
     try:
         st.write('**SEARCHING PCR DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
-        exist = conn.read(worksheet= 'PCR', usecols=list(range(34)),ttl=5)
+        exist = conn.read(worksheet= 'PCR', usecols=list(range(25)),ttl=5)
         df = exist.dropna(how='all')
         df = df.rename(columns={'DATE OF PCR': 'DATEY'})
     except:
-         "POOR NETWORK, COUDN'T CONNECT TO PCR DATABASE"
+         st.write("POOR NETWORK, COUDN'T CONNECT TO PCR DATABASE")
+         st.stop()
 
-#file = r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT.xlsx"         
-
-#df = pd.read_excel(file)
-#df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
-st.write(df.columns)
 df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
 df['MONTH'] = df['DATEY'].dt.strftime('%B')
