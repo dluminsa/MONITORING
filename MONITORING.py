@@ -133,6 +133,7 @@ if len(mon)==1:
     colb.markdown(f'**MONTH : {mona}**')
 st.markdown(f'**TOTAL ENTERED : {total}**')
 #st.divider()
+st.writ
 st.write('**VIEW DATA SET HERE**')
 fdf['DATEY'] = fdf['DATEY'].astype(str)
 fdf['DATEY'] = fdf['DATEY'].str.replace('00:00:00', '', regex=False)
