@@ -31,7 +31,7 @@ elif CHOICE == 'DELIVERY':
         df = df.rename(columns={'DATE OF DELIVERY': 'DATEY'})
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO DELIVERY DATABASE")
-          st.stop()
+         st.stop()
 elif CHOICE == 'PCR':
     try:
         st.write('**SEARCHING PCR DATABASE**')
