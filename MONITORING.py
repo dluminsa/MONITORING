@@ -134,4 +134,5 @@ st.markdown(f'**TOTAL ENTERED : {total}**')
 
 st.divider()
 st.write('**VIEW DATA SET HERE**')
+fdf = fdf.set_index('DISTRICT')
 st.write(fdf)
