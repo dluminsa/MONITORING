@@ -120,16 +120,17 @@ cola,colb,colc = st.columns(3)
 
 colb.write('**SUMMARIES**')
 
+cola,colb = st.columns(2)
 if len(dis)==1:
-    st.markdown(f'**DISTRICT : {disa}**')
+    cola.markdown(f'**DISTRICT : {disa}**')
 
 if len(fac)==1:
-    st.markdown(f'**FACILITY: {faca}**')
+    col.markdown(f'**FACILITY: {faca}**')
 
 if len(yea)==1:  
-    st.markdown(f'**YEAR : {yeaa}**')
+    cola.markdown(f'**YEAR : {yeaa}**')
 if len(mon)==1:
-    st.markdown(f'**MONTH : {mona}**')
+    colb.markdown(f'**MONTH : {mona}**')
 st.markdown(f'**TOTAL ENTERED : {total}**')
 
 st.divider()
