@@ -80,54 +80,6 @@ if not month:
 else:
     df5 = df4[df4['MONTH'].isin(month)]
 
-###############################################################################################
-                
-# if not year and not facility:
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['MONTH'].isin(month)]
-
-# elif not month and not facility:
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['YEAR'].isin(year)]
-
-# elif not month and not year: 
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['FACILITY'].isin(facility)]
-
-# elif not district and not facility:
-#     fdf = df5[df5['MONTH'].isin(month) & df5['YEAR'].isin(year)]
-
-# elif not year and not facility:
-#     fdf = df5[df5['MONTH'].isin(month) & df5['YEAR'].isin(year)]
-
-# elif not month and not district:
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['YEAR'].isin(year)]
-
-# elif not month and not facility and not year:
-#     fdf = df5[df5['DISTRICT'].isin(district)]
-
-# elif not district and not year and not facility:
-#     fdf = df5[df5['MONTH'].isin(month)]  
-
-# elif not facility and not district and not month:
-#     fdf = df5[df5['YEAR'].isin(year)]
-
-# elif not district and not year and not month:
-#     fdf5 = df5[df5['FACILITY'].isin(facility)]  
-
-# elif not facility:
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['MONTH'].isin(month) & df5['YEAR'].isin(year)]
-
-# elif not year:
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['MONTH'].isin(month) & df5['FACILITY'].isin(facility)]
-
-# elif not month:
-#     fdf = df5[df5['DISTRICT'].isin(district) & df5['FACILITY'].isin(facility) & df5['YEAR'].isin(year)]
-
-# elif not district:
-#     fdf = df5[df5['FACILITY'].isin(facility) & df5['MONTH'].isin(month) & df5['YEAR'].isin(year)]
-
-# else:
-#     fdf = df5
-
-
 ##################################################################################################
 # Base DataFrame to filter
 fdf = df5.copy()
@@ -179,3 +131,7 @@ if len(yea)==1:
 if len(mon)==1:
     st.markdown(f'**MONTH : {mona}**')
 st.markdown(f'**TOTAL ENTERED : {total}**')
+
+st.divider()
+st.write('**VIEW DATA SET HERE**')
+st.write(fdf)
