@@ -44,7 +44,7 @@ elif CHOICE == 'PCR':
 
 #df = pd.read_excel(file)
 #df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
-
+st.write(df.columns)
 df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
 df['MONTH'] = df['DATEY'].dt.strftime('%B')
