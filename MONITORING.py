@@ -1,6 +1,6 @@
 import pandas as pd 
 from datetime import datetime
-#from streamlit_gsheets import GSheetsConnection
+from streamlit_gsheets import GSheetsConnection
 import streamlit as st
 import time
 import datetime as dt
@@ -9,41 +9,41 @@ import datetime as dt
 st.markdown("<h4><b>MONITORING ENTRIES DONE SO FAR</b></h4>", unsafe_allow_html=True)
 
 
-# CHOICE = st.selectbox('**WHICH DATABASE DO YOU WANT TO MONITOR**', options= ['ANC', 'PCR', 'DELIVERY'], index = None)
-# if not CHOICE:
-#      st.stop()
-# elif CHOICE == 'ANC':
-#     try:
-#         st.write('**SEARCHING ANC DATABASE**')
-#         conn = st.connection('gsheets', type=GSheetsConnection)
-#         exist = conn.read(worksheet= 'PMTCT', usecols=list(range(34)),ttl=5)
-#         df = exist.dropna(how='all')
-#         df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
-#     except:
-#          "POOR NETWORK, COUDN'T CONNECT TO DATABASE"
-# elif CHOICE == 'DELIVERY':
-#     try:
-#         st.write('**SEARCHING DELIVERY DATABASE**')
-#         conn = st.connection('gsheets', type=GSheetsConnection)
-#         exist = conn.read(worksheet= 'DELIVERY', usecols=list(range(34)),ttl=5)
-#         df = exist.dropna(how='all')
-#         df = df.rename(columns={'DATE OF DELIVERY': 'DATEY'})
-#     except:
-#          "POOR NETWORK, COUDN'T CONNECT TO DATABASE"
-# elif CHOICE == 'PCR':
-#     try:
-#         st.write('**SEARCHING PCR DATABASE**')
-#         conn = st.connection('gsheets', type=GSheetsConnection)
-#         exist = conn.read(worksheet= 'PCR', usecols=list(range(34)),ttl=5)
-#         df = exist.dropna(how='all')
-#         df = df.rename(columns={'DATE OF PCR': 'DATEY'})
-#     except:
-#          "POOR NETWORK, COUDN'T CONNECT TO DATABASE"
+CHOICE = st.selectbox('**WHICH DATABASE DO YOU WANT TO MONITOR**', options= ['ANC', 'PCR', 'DELIVERY'], index = None)
+if not CHOICE:
+     st.stop()
+elif CHOICE == 'ANC':
+    try:
+        st.write('**SEARCHING ANC DATABASE**')
+        conn = st.connection('gsheets', type=GSheetsConnection)
+        exist = conn.read(worksheet= 'PMTCT', usecols=list(range(34)),ttl=5)
+        df = exist.dropna(how='all')
+        df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
+    except:
+         "POOR NETWORK, COUDN'T CONNECT TO DATABASE"
+elif CHOICE == 'DELIVERY':
+    try:
+        st.write('**SEARCHING DELIVERY DATABASE**')
+        conn = st.connection('gsheets', type=GSheetsConnection)
+        exist = conn.read(worksheet= 'DELIVERY', usecols=list(range(34)),ttl=5)
+        df = exist.dropna(how='all')
+        df = df.rename(columns={'DATE OF DELIVERY': 'DATEY'})
+    except:
+         "POOR NETWORK, COUDN'T CONNECT TO DELIVERY DATABASE"
+elif CHOICE == 'PCR':
+    try:
+        st.write('**SEARCHING PCR DATABASE**')
+        conn = st.connection('gsheets', type=GSheetsConnection)
+        exist = conn.read(worksheet= 'PCR', usecols=list(range(34)),ttl=5)
+        df = exist.dropna(how='all')
+        df = df.rename(columns={'DATE OF PCR': 'DATEY'})
+    except:
+         "POOR NETWORK, COUDN'T CONNECT TO PCR DATABASE"
 
-file = r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT.xlsx"         
+#file = r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT.xlsx"         
 
-df = pd.read_excel(file)
-df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
+#df = pd.read_excel(file)
+#df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
 
 df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
