@@ -13,14 +13,14 @@ CHOICE = st.radio('**WHICH DATABASE DO YOU WANT TO MONITOR**', options= ['ANC', 
 if not CHOICE:
      st.stop()
 elif CHOICE == 'ANC':
-    try:
-        st.write('**SEARCHING ANC DATABASE**')
-        conn = st.connection('gsheets', type=GSheetsConnection)
-        exist = conn.read(worksheet= 'PMTCT', usecols=list(range(34)),ttl=5)
-        df = exist.dropna(how='all')
-        df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
-    except:
-         "POOR NETWORK, COUDN'T CONNECT TO DATABASE"
+    #try:
+     st.write('**SEARCHING ANC DATABASE**')
+     conn = st.connection('gsheets', type=GSheetsConnection)
+     exist = conn.read(worksheet= 'PMTCT', usecols=list(range(34)),ttl=5)
+     df = exist.dropna(how='all')
+     df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
+    #except:
+         #"POOR NETWORK, COUDN'T CONNECT TO DATABASE"
 elif CHOICE == 'DELIVERY':
     try:
         st.write('**SEARCHING DELIVERY DATABASE**')
