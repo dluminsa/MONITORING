@@ -134,5 +134,11 @@ st.markdown(f'**TOTAL ENTERED : {total}**')
 
 st.divider()
 st.write('**VIEW DATA SET HERE**')
+if CHOICE == 'ANC':
+     fdf = fdf.rename(columns= {'DATEY': 'ANC DATE'})
+elif CHOICE == 'PCR':
+     fdf = fdf.rename(columns= {'DATEY': 'PCR DATE'})
+elif CHOICE == 'DELIVERY':
+     fdf = fdf.rename(columns= {'DATEY': 'DELIVERY DATE'})
 fdf = fdf.set_index('DISTRICT')
 st.write(fdf)
