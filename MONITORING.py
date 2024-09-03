@@ -125,7 +125,7 @@ if len(dis)==1:
     cola.markdown(f'**DISTRICT : {disa}**')
 
 if len(fac)==1:
-    col.markdown(f'**FACILITY: {faca}**')
+    colb.markdown(f'**FACILITY: {faca}**')
 
 if len(yea)==1:  
     cola.markdown(f'**YEAR : {yeaa}**')
