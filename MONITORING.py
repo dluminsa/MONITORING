@@ -9,7 +9,7 @@ import datetime as dt
 st.markdown("<h4><b>MONITORING ENTRIES DONE SO FAR</b></h4>", unsafe_allow_html=True)
 
 
-CHOICE = st.radio('**WHICH DATABASE DO YOU WANT TO MONITOR**', options= ['ANC', 'PCR', 'DELIVERY'], horizontal=True, index = None)
+CHOICE = st.radio('**WHICH DATABASE DO YOU WANT TO MONITOR?**', options= ['ANC', 'PCR', 'DELIVERY'], horizontal=True, index = None)
 if not CHOICE:
      st.stop()
 elif CHOICE == 'ANC':
