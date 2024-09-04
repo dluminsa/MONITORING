@@ -15,7 +15,7 @@ if not CHOICE:
      st.stop()
 elif CHOICE == 'ANC':
     try:
-          st.write('**SEARCHING ANC DATABASE**')
+          st.write('**SHOWING DATA FROM ANC DATABASE**')
           conn = st.connection('gsheets', type=GSheetsConnection)
           exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
           df = exist.dropna(how='all')
@@ -25,7 +25,7 @@ elif CHOICE == 'ANC':
          st.stop()
 elif CHOICE == 'DELIVERY':
     try:
-        st.write('**SEARCHING DELIVERY DATABASE**')
+        st.write('**SHOWING DATA FROM DELIVERY DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
         exist = conn.read(worksheet= 'DELIVERY', usecols=list(range(25)),ttl=5)
         df = exist.dropna(how='all')
@@ -35,7 +35,7 @@ elif CHOICE == 'DELIVERY':
          st.stop()
 elif CHOICE == 'PCR':
     try:
-        st.write('**SEARCHING PCR DATABASE**')
+        st.write('**SHOWING DATA FROM PCR DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
         exist = conn.read(worksheet= 'PCR', usecols=list(range(25)),ttl=5)
         df = exist.dropna(how='all')
