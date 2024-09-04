@@ -205,6 +205,14 @@ if CHOICE == 'ANC':
                     BUM = int(BUMB)-int(BUMBA)
                     BU  = round((int(BUMBA)/int(BUMB))*100)
                     BU = str(BU) + '%'
+                     
+                    KALMBA = fdf[fdf['DISTRICT']=='KALUNGU'].shape[0]
+                    #expected
+                    KALMBt = fdfa[fdfa['DISTRICT']=='KALUNGU'].copy()
+                    KALMB = KALMBt['TOTALS'].sum()
+                    KALM = int(KALMB)-int(KALMBA)
+                    KAL  = round((int(KALMBA)/int(KALMB))*100)
+                    KAL = str(KAL) + '%'
 
                     WAMBA = fdf[fdf['DISTRICT']=='WAKISO'].shape[0]
                     #expected
@@ -355,6 +363,12 @@ if CHOICE == 'ANC':
                     colc.write(str(MSKMBA))
                     cold.write(str(MSK))
                     cole.write(str(MSKM))
+
+                    cola.write('**KALUNGU**')
+                    colb.write(str(KALMB))
+                    colc.write(str(KALMBA))
+                    cold.write(str(KAL))
+                    cole.write(str(KALM))
 
                     cola.write('**KALANGALA**')
                     colb.write(str(KLGMB))
