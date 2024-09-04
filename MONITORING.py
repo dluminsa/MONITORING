@@ -15,7 +15,7 @@ if not CHOICE:
      st.stop()
 elif CHOICE == 'ANC':
     try:
-          cola,colb,colc= st.columns(3)
+          cola,colb= st.columns([1,4])
           colb.write('**SHOWING DATA FROM ANC DATABASE**')
           conn = st.connection('gsheets', type=GSheetsConnection)
           exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
