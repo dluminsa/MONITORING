@@ -46,8 +46,8 @@ elif CHOICE == 'PCR':
 
 #file =r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT (6).xlsx"
 file2 = r'BACKLOG.csv'
-df = pd.read_excel(file)
-df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
+#df = pd.read_excel(file)
+#df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
 dfa = pd.read_csv(file2)
 
 df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
