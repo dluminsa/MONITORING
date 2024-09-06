@@ -415,7 +415,7 @@ if CHOICE == 'ANC':
      fdf = fdf[['DISTRICT', 'FACILITY', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
      fdf = fdf.rename(columns= {'DATEY': 'PCR DATE'})
-     fdf = fdf[['DISTRICT', 'FACILITY', 'PCR DAT', 'MONTH', 'YEAR']]
+     fdf = fdf[['DISTRICT', 'FACILITY', 'PCR DATE', 'MONTH', 'YEAR']]
 elif CHOICE == 'DELIVERY':
      fdf = fdf.rename(columns= {'DATEY': 'DELIVERY DATE'})
      fdf = fdf[['DISTRICT', 'FACILITY', 'DELIVERY DATE', 'MONTH', 'YEAR', 'OUTCOME']]
