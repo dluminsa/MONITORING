@@ -426,18 +426,20 @@ st.write(fdf)
 #DOWNLOAD
 siz = fdfa['FACILITY'].unique()
 fdfa = fdfa.reset_index()
+fdfa = pd.to_date(fdfa['DATEY'], errors = 'coerce')
+fdfa['DAY'] = fdfa['DATEY'].dt.day
 fdfa = fdfa.sort_values(by = ['DATEY'])
 if CHOICE == 'ANC':
-     fdfa = fdfa[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
+     fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY','MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
-     fdfa = fdfa[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR']]
+     fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY', 'MONTH', 'YEAR']]
 elif CHOICE == 'DELIVERY':
-     fdfa = fdfa[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
+     fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY', 'MONTH', 'YEAR', 'OUTCOME']]
 name = ','.join(siz)
 if len(siz)==1:    
      dat = fdfa.to_csv(index=False)
      st.download_button(
           label = '**DOWNLOAD THIS DATA**',
           data = dat,
-          file_name = f'{name}_{CHOICE}_DATA',
+          file_name = f'{name}_{CHOICE}_DATA.csv',
           mime="text/csv")
