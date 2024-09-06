@@ -424,7 +424,7 @@ st.write(fdf)
 #######
 #DOWNLOAD
 siz = fdf['FACILITY'].unique()
-fdf = fdf.rest_index()
+fdf = fdf.reset_index()
 if CHOICE == 'ANC':
      fdf = fdf[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
