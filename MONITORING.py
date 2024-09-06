@@ -432,6 +432,7 @@ elif CHOICE == 'DELIVERY':
      fdf = fdf[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
 
 if len(siz)==1:
+     fdf = fdf.rest_index()
      dat = fdf.to_csv()
      st.download_button(
 
