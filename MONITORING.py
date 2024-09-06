@@ -53,7 +53,7 @@ file2 = r'BACKLOG.csv'
 #df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
 dfa = pd.read_csv(file2)
 
-df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
+#df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
 df['MONTH'] = df['DATEY'].dt.strftime('%B')
 df['YEAR'] = df['DATEY'].dt.year
