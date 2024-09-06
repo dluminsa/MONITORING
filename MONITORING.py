@@ -426,7 +426,7 @@ st.write(fdf)
 #DOWNLOAD
 siz = fdfa['FACILITY'].unique()
 fdfa = fdfa.reset_index()
-fdfa = fdfa.sort_values(by = ['DATEY']
+fdfa = fdfa.sort_values(by = ['DATEY'])
 if CHOICE == 'ANC':
      fdfa = fdfa[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
