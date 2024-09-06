@@ -433,11 +433,11 @@ elif CHOICE == 'PCR':
      fdfa = fdfa[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR']]
 elif CHOICE == 'DELIVERY':
      fdfa = fdfa[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
-
+name = ','.join(siz)
 if len(siz)==1:    
      dat = fdfa.to_csv(index=False)
      st.download_button(
           label = '**DOWNLOAD THIS DATA**',
           data = dat,
-          file_name = f'{facility}_{CHOICE}_DATA',
+          file_name = f'{name}_{CHOICE}_DATA',
           mime="text/csv")
