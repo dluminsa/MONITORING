@@ -426,7 +426,7 @@ st.write(fdf)
 #DOWNLOAD
 siz = fdfa['FACILITY'].unique()
 fdfa = fdfa.reset_index()
-fdfa = pd.to_datetime(fdfa['DATEY'], errors = 'coerce')
+fdfa['DATEY'] = pd.to_datetime(fdfa['DATEY'], errors = 'coerce')
 fdfa['DAY'] = fdfa['DATEY'].dt.day
 fdfa = fdfa.sort_values(by = ['DATEY'])
 if CHOICE == 'ANC':
