@@ -405,6 +405,7 @@ if CHOICE == 'ANC':
                     st.stop()
 #st.divider()
 #st.writ
+fdfa = fdf.copy()
 st.write('**VIEW DATA SET HERE**')
 fdf['DATEY'] = fdf['DATEY'].astype(str)
 fdf['DATEY'] = fdf['DATEY'].str.replace('00:00:00', '', regex=False)
@@ -423,22 +424,20 @@ fdf = fdf.set_index('DISTRICT')
 st.write(fdf)
 #######
 #DOWNLOAD
-siz = fdf['FACILITY'].unique()
-fdf = fdf.reset_index()
+siz = fdfa['FACILITY'].unique()
+fdfa = fdfa.reset_index()
+fdfa = fdfa.sort_values(by = ['DATEY']
 if CHOICE == 'ANC':
-     fdf = fdf[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
+     fdfa = fdfa[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
-     fdf = fdf[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR']]
+     fdfa = fdfa[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR']]
 elif CHOICE == 'DELIVERY':
-     fdf = fdf[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
+     fdfa = fdfa[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
 
-if len(siz)==1:
-     
-     dat = fdf.to_csv()
+if len(siz)==1:    
+     dat = fdfa.to_csv(index=False)
      st.download_button(
-
           label = '**DOWNLOAD THIS DATA**',
           data = dat,
           file_name = f'{facility}_{CHOICE}_DATA',
-          mime="text/csv"
-     )
+          mime="text/csv")
