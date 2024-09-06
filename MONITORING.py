@@ -412,9 +412,12 @@ fdf['DATEY'] = fdf['DATEY'].str.replace('00:00:00', '', regex=False)
 
 if CHOICE == 'ANC':
      fdf = fdf.rename(columns= {'DATEY': 'ANC DATE'})
+     fdf = fdf[['DISTRICT', 'FACILITY', 'DATEY', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
      fdf = fdf.rename(columns= {'DATEY': 'PCR DATE'})
+     fdf = fdf[['DISTRICT', 'FACILITY', 'DATEY', 'MONTH', 'YEAR']]
 elif CHOICE == 'DELIVERY':
      fdf = fdf.rename(columns= {'DATEY': 'DELIVERY DATE'})
+     fdf = fdf[['DISTRICT', 'FACILITY', 'DATEY', 'MONTH', 'YEAR', 'OUTCOME']]
 fdf = fdf.set_index('DISTRICT')
 st.write(fdf)
