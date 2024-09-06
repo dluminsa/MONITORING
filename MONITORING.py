@@ -421,3 +421,22 @@ elif CHOICE == 'DELIVERY':
      fdf = fdf[['DISTRICT', 'FACILITY', 'DELIVERY DATE', 'MONTH', 'YEAR', 'OUTCOME']]
 fdf = fdf.set_index('DISTRICT')
 st.write(fdf)
+#######
+#DOWNLOAD
+siz = fdf['FACILITY'].unique()
+if CHOICE == 'ANC':
+     fdf = fdf[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
+elif CHOICE == 'PCR':
+     fdf = fdf[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR']]
+elif CHOICE == 'DELIVERY':
+     fdf = fdf[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
+
+if len(siz)==1:
+     dat = fdf.to_csv()
+     st.download_button(
+
+          label = '**DOWNLOAD THIS DATA**',
+          data = dat,
+          file_name = f'{facility}_{CHOICE}_DATA',
+          mime="text/csv"
+     )
