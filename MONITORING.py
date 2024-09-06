@@ -424,6 +424,7 @@ st.write(fdf)
 #######
 #DOWNLOAD
 siz = fdf['FACILITY'].unique()
+fdf = fdf.rest_index()
 if CHOICE == 'ANC':
      fdf = fdf[['DISTRICT', 'FACILITY', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
@@ -432,7 +433,7 @@ elif CHOICE == 'DELIVERY':
      fdf = fdf[['DISTRICT', 'FACILITY',  'MONTH', 'YEAR', 'OUTCOME']]
 
 if len(siz)==1:
-     fdf = fdf.rest_index()
+     
      dat = fdf.to_csv()
      st.download_button(
 
