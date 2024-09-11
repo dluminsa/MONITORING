@@ -27,8 +27,8 @@ elif CHOICE == 'ANC':
           else:
                 df = st.session_state['exist_de']
           df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
-          st.session_state['exist_de'] = df 
-          df = st.session_state['exist_de'] 
+          #st.session_state['exist_de'] = df 
+          #df = st.session_state['exist_de'] 
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
          st.stop()
