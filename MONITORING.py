@@ -19,13 +19,13 @@ elif CHOICE == 'ANC':
           #cola,colb= st.columns(2)
           st.write('**SHOWING DATA FROM ANC DATABASE**')
           conn = st.connection('gsheets', type=GSheetsConnection)
-          if 'exist_de' not in st.session_state:
-                exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
-                back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
-                df = pd.concat([back, exist])
+          #if 'exist_de' not in st.session_state:/
+          exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
+          back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
+          df = pd.concat([back, exist])
                 #st.write('SEEN')
-          else:
-                df = st.session_state['exist_de']
+          #else:
+           #     df = st.session_state['exist_de']
           df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
           #st.session_state['exist_de'] = df 
           #df = st.session_state['exist_de'] 
@@ -55,7 +55,8 @@ elif CHOICE == 'PCR':
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO PCR DATABASE")
          st.stop()
-st.write(df.shape[0])
+#st.write(df.shape[0])
+c
 #file =r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT (6).xlsx"
 file2 = r'BACKLOG.csv'
 #df = pd.read_excel(file)
