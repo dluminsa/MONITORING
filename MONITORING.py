@@ -7,7 +7,7 @@ import datetime as dt
 
 #st.title("PMTCT DASHBOARD DATA ENTRY FORM")
 st.markdown("<h4><b>MONITORING ENTRIES DONE SO FAR</b></h4>", unsafe_allow_html=True)
-st.stop()
+#st.stop()
 
 
 #CHOICE = 'ANC'
@@ -20,7 +20,10 @@ elif CHOICE == 'ANC':
           st.write('**SHOWING DATA FROM ANC DATABASE**')
           conn = st.connection('gsheets', type=GSheetsConnection)
           exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
-          df = exist.dropna(how='all')
+          back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
+          df = pd.concat([back, exist])
+          #arts = df.copy()
+          #df = exist.dropna(how='all')
           df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
