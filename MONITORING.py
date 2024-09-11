@@ -32,7 +32,7 @@ elif CHOICE == 'ANC':
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
          st.stop()
-st.write(df.shape[0])
+
 elif CHOICE == 'DELIVERY':
     try:
         #cola,colb= st.columns(2)
@@ -55,7 +55,7 @@ elif CHOICE == 'PCR':
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO PCR DATABASE")
          st.stop()
-
+st.write(df.shape[0])
 #file =r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT (6).xlsx"
 file2 = r'BACKLOG.csv'
 #df = pd.read_excel(file)
