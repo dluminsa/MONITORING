@@ -56,7 +56,7 @@ elif CHOICE == 'PCR':
          st.write("POOR NETWORK, COUDN'T CONNECT TO PCR DATABASE")
          st.stop()
 #st.write(df.shape[0])
-c
+
 #file =r"C:\Users\Desire Lumisa\Desktop\APP\PMTCT (6).xlsx"
 file2 = r'BACKLOG.csv'
 #df = pd.read_excel(file)
