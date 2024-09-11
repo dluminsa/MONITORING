@@ -21,7 +21,9 @@ elif CHOICE == 'ANC':
           conn = st.connection('gsheets', type=GSheetsConnection)
           #if 'exist_de' not in st.session_state:/
           exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
+          st.write(exist.shape[0])
           back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
+          st.write(back.shape[0])
           df = pd.concat([back, exist])
                 #st.write('SEEN')
           #else:
