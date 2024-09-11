@@ -25,6 +25,7 @@ elif CHOICE == 'ANC':
           back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
           back = back.dropna(how = 'all')
           st.write(back.shape[0])
+         fg
           df = pd.concat([back, exist])
                 #st.write('SEEN')
           #else:
