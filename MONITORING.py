@@ -23,15 +23,12 @@ elif CHOICE == 'ANC':
                 exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
                 back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
                 df = pd.concat([back, exist])
-                st.write('SEEN')
+                #st.write('SEEN')
           else:
                 df = st.session_state['exist_de']
-          # exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
-          # back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
-          # df = pd.concat([back, exist])
-          #arts = df.copy()
-          #df = exist.dropna(how='all')
           df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
+          st.session_state['exist_de'] = df 
+          df = st.session_state['exist_de'] 
     except:
          st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
          st.stop()
