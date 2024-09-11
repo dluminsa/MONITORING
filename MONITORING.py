@@ -22,9 +22,10 @@ elif CHOICE == 'ANC':
           #if 'exist_de' not in st.session_state:/
           exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
           exist = exist.dropna(how = 'all')
-          back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
+          back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=5)
           back = back.dropna(how = 'all')
           st.write(back.shape[0])
+          st.write('hEYYYYYYY')
           df = pd.concat([back, exist])
                 #st.write('SEEN')
           #else:
