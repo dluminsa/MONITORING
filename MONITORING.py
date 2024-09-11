@@ -19,9 +19,15 @@ elif CHOICE == 'ANC':
           #cola,colb= st.columns(2)
           st.write('**SHOWING DATA FROM ANC DATABASE**')
           conn = st.connection('gsheets', type=GSheetsConnection)
-          exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
-          back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
-          df = pd.concat([back, exist])
+          if 'exist_de' not in st.session_state:
+                exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
+                back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
+                df = pd.concat([back, exist])
+          else:
+                df = st.session_state['exist_de']
+          # exist = conn.read(worksheet= 'PMTCT', usecols=list(range(26)),ttl=5)
+          # back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=0)
+          # df = pd.concat([back, exist])
           #arts = df.copy()
           #df = exist.dropna(how='all')
           df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
