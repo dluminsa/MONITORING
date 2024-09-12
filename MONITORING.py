@@ -51,7 +51,7 @@ elif CHOICE == 'ANC':
                dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(str)
                #dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(int)
                dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
-               dfs.append(dfx)
+               dfas.append(dfx)
           dfb = pd.concat(dfas)
           df = pd.concat([dfa, dfb])
           #dow = df.copy()
