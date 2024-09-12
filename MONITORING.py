@@ -28,17 +28,31 @@ elif CHOICE == 'ANC':
           A = back.shape[0]
           st.write(A)
           df = pd.concat([back, exist])
+          df['IS THIS HER PARENT FACILITY?'] = df['IS THIS HER PARENT FACILITY?'].astype(str)
+          dfa = df[df['IS THIS HER PARENT FACILITY?']=='YES'].copy()
+          dfb = df[df['IS THIS HER PARENT FACILITY?']=='NO'].copy()
           
           dfs=[]
-          faci = df['HEALTH FACILITY'].unique()
+          faci = dfa['HEALTH FACILITY'].unique()
           for facility in faci:
-               df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
-               dfa = df[df['HEALTH FACILITY']==facility]
-               dfa['NAME'] = dfa['NAME'].astype(str)
-               dfa = dfa.drop_duplicates(subset = ['NAME'], keep='first')
-               dfs.append(dfa)
-          df = pd.concat(dfs)
-          dow = df.copy()
+               dfa['HEALTH FACILITY'] = dfa['HEALTH FACILITY'].astype(str)
+               dfx = df[df['HEALTH FACILITY']==facility]
+               dfx['ART No.'] = dfx['ART No.'].astype(int)
+               dfx = dfx.drop_duplicates(subset = ['ART No.'], keep='first')
+               dfs.append(dfx)
+          dfa = pd.concat(dfs)
+          
+         dfas=[]
+          facy = dfb['HEALTH FACILITY'].unique()
+          for facility in facy:
+               dfb['HEALTH FACILITY'] = dfb['HEALTH FACILITY'].astype(str)
+               dfx = df[df['HEALTH FACILITY']==facility]
+               dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(int)
+               dfx = dfx.drop_duplicates(subset = ['UNIQUE ID], keep='first')
+               dfs.append(dfx)
+          dfb = pd.concat(dfas)
+          df = pd.concat([dfa, dfb])
+          #dow = df.copy()
                
                 #st.write('SEEN')
           #else:
