@@ -37,7 +37,7 @@ elif CHOICE == 'ANC':
                dfa['NAME'] = dfa['NAME'].astype(str)
                dfa = dfa.drop_duplicates(subset = ['NAME'])
                dfs.append(dfa)
-     df = pd.concat(dfs)
+          df = pd.concat(dfs)
                
                 #st.write('SEEN')
           #else:
