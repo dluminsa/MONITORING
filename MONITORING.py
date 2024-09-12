@@ -54,6 +54,8 @@ elif CHOICE == 'ANC':
                dfas.append(dfx)
           dfb = pd.concat(dfas)
           df = pd.concat([dfa, dfb])
+          df['NAME'] = df['NAME'].astype(str)
+          df = df.drop_duplicates(subset = ['NAME'], keep='first')
           dow = df.copy()
                
                 #st.write('SEEN')
