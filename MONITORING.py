@@ -37,8 +37,8 @@ elif CHOICE == 'ANC':
           for facility in faci:
                dfa['HEALTH FACILITY'] = dfa['HEALTH FACILITY'].astype(str)
                dfx = df[df['HEALTH FACILITY']==facility]#
-               dfx['ART No.'] = dfx['ART No.'].astype(str)
-               #dfx['ART No.'] = dfx['ART No.'].astype(int)
+               #dfx['ART No.'] = dfx['ART No.'].astype(str)
+               dfx['ART No.'] = pd.to_numeric(dfx['ART No.'], errors = coerce)#.astype(int)
                dfx = dfx.drop_duplicates(subset = ['ART No.'], keep='first')
                dfs.append(dfx)
           dfa = pd.concat(dfs)
@@ -48,8 +48,8 @@ elif CHOICE == 'ANC':
           for facility in facy:
                dfb['HEALTH FACILITY'] = dfb['HEALTH FACILITY'].astype(str)
                dfx = df[df['HEALTH FACILITY']==facility]
-               dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(str)
-               #dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(int)
+               #dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(str)
+               dfx['UNIQUE ID'] = pd.to_numeric(dfx['UNIQUE ID'], errors = 'coerce')#.astype(int)
                dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
                dfas.append(dfx)
           dfb = pd.concat(dfas)
