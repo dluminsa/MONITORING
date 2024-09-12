@@ -38,7 +38,7 @@ elif CHOICE == 'ANC':
                dfa['HEALTH FACILITY'] = dfa['HEALTH FACILITY'].astype(str)
                dfx = df[df['HEALTH FACILITY']==facility]#
                #dfx['ART No.'] = dfx['ART No.'].astype(str)
-               dfx['ART No.'] = pd.to_numeric(dfx['ART No.'], errors = coerce)#.astype(int)
+               dfx['ART No.'] = pd.to_numeric(dfx['ART No.'], errors = 'coerce')#.astype(int)
                dfx = dfx.drop_duplicates(subset = ['ART No.'], keep='first')
                dfs.append(dfx)
           dfa = pd.concat(dfs)
