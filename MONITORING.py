@@ -29,7 +29,8 @@ elif CHOICE == 'ANC':
           st.write(A)
           df = pd.concat([back, exist])
           df['NAME'] = df['NAME'].astype(str)
-          df = df.drop_duplicates(subset = ['NAME'])
+         CCC
+          #df = df.drop_duplicates(subset = ['NAME'])
                 #st.write('SEEN')
           #else:
            #     df = st.session_state['exist_de']
