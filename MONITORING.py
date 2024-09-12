@@ -54,7 +54,7 @@ elif CHOICE == 'ANC':
                dfas.append(dfx)
           dfb = pd.concat(dfas)
           df = pd.concat([dfa, dfb])
-          #dow = df.copy()
+          dow = df.copy()
                
                 #st.write('SEEN')
           #else:
