@@ -27,6 +27,8 @@ elif CHOICE == 'ANC':
           back = back.dropna(how = 'all')
           A = back.shape[0]
           st.write(A)
+          B = exist.shape[0]
+          st.write(B)
           df = pd.concat([back, exist])
           df['IS THIS HER PARENT FACILITY?'] = df['IS THIS HER PARENT FACILITY?'].astype(str)
           dfa = df[df['IS THIS HER PARENT FACILITY?']=='YES'].copy()
