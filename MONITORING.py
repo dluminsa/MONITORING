@@ -28,6 +28,9 @@ elif CHOICE == 'ANC':
           A = back.shape[0]
           st.write(A)
           df = pd.concat([back, exist])
+          df['NAME'] = df['NAME'].astype(str)
+          df = df.drop_duplicates(subset = ['NAME'])
+         DDF
                 #st.write('SEEN')
           #else:
            #     df = st.session_state['exist_de']
@@ -153,8 +156,8 @@ mona = ', '.join(fdf['MONTH'].unique())
 
 fdf['YEAR'] = fdf['YEAR'].astype(str)
 yeaa = ', '.join(fdf['YEAR'].unique())
-
-faca = ', '.join(fdf['FACILITY'].unique())
+st.wr
+#faca = ', '.join(fdf['FACILITY'].unique())
 
 total = fdf.shape[0]
 if exp==0:
