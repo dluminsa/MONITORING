@@ -36,8 +36,9 @@ elif CHOICE == 'ANC':
           faci = dfa['HEALTH FACILITY'].unique()
           for facility in faci:
                dfa['HEALTH FACILITY'] = dfa['HEALTH FACILITY'].astype(str)
-               dfx = df[df['HEALTH FACILITY']==facility]
-               dfx['ART No.'] = dfx['ART No.'].astype(int)
+               dfx = df[df['HEALTH FACILITY']==facility]#
+               dfx['ART No.'] = dfx['ART No.'].astype(str)
+               #dfx['ART No.'] = dfx['ART No.'].astype(int)
                dfx = dfx.drop_duplicates(subset = ['ART No.'], keep='first')
                dfs.append(dfx)
           dfa = pd.concat(dfs)
