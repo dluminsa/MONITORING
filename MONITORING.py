@@ -29,7 +29,6 @@ elif CHOICE == 'ANC':
           st.write(A)
           df = pd.concat([back, exist])
           df['NAME'] = df['NAME'].astype(str)
-         CCC
           #df = df.drop_duplicates(subset = ['NAME'])
                 #st.write('SEEN')
           #else:
