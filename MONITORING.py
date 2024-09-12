@@ -60,7 +60,8 @@ elif CHOICE == 'ANC':
           df = df.rename(columns={'ANC DATE': 'DATEY', 'FACILITY DISTRICT':'DISTRICT', 'HEALTH FACILITY':'FACILITY'})
           #st.session_state['exist_de'] = df 
           #df = st.session_state['exist_de'] 
-    except:
+    except Exception as e:
+         st.write(f"An error occurred: {e}")
          st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
          st.stop()
 
