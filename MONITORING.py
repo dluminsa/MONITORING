@@ -471,7 +471,7 @@ fdf['DATEY'] = fdf['DATEY'].str.replace('00:00:00', '', regex=False)
 if CHOICE == 'ANC':
      fdf = fdf.rename(columns= {'DATEY': 'ANC DATE'})
      #fdf = fdf[['DISTRICT', 'FACILITY', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
-     fdf = fdf[['DISTRICT', 'FACILITY','NAME','UNIQUE ID','ART No.', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
+     fdf = fdf[['DISTRICT', 'FACILITY','ART No.','UNIQUE ID', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
      fdf = fdf.rename(columns= {'DATEY': 'PCR DATE'})
      fdf = fdf[['DISTRICT', 'FACILITY', 'PCR DATE', 'MONTH', 'YEAR']]
