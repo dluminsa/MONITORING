@@ -458,7 +458,7 @@ if CHOICE == 'ANC':
                     colc.write(str(KYOMBA))
                     cold.write(str(KYO))
                     cole.write(str(KYOM))
-                    st.write(dow)
+                    #st.write(dow)
                     st.stop()
 #st.divider()
 #st.writ
