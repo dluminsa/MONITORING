@@ -470,7 +470,8 @@ fdf['DATEY'] = fdf['DATEY'].str.replace('00:00:00', '', regex=False)
 
 if CHOICE == 'ANC':
      fdf = fdf.rename(columns= {'DATEY': 'ANC DATE'})
-     fdf = fdf[['DISTRICT', 'FACILITY', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
+     #fdf = fdf[['DISTRICT', 'FACILITY', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
+     fdf = fdf[['DISTRICT', 'FACILITY','NAME','UNIQUE ID','ART No.', 'ANC DATE', 'MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
      fdf = fdf.rename(columns= {'DATEY': 'PCR DATE'})
      fdf = fdf[['DISTRICT', 'FACILITY', 'PCR DATE', 'MONTH', 'YEAR']]
@@ -487,7 +488,8 @@ fdfa['DATEY'] = pd.to_datetime(fdfa['DATEY'], errors = 'coerce')
 fdfa['DAY'] = fdfa['DATEY'].dt.day
 fdfa = fdfa.sort_values(by = ['DATEY'])
 if CHOICE == 'ANC':
-     fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY','MONTH', 'YEAR', 'CODE']]
+     pass
+     #fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY','MONTH', 'YEAR', 'CODE']]
 elif CHOICE == 'PCR':
      fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY', 'MONTH', 'YEAR']]
 elif CHOICE == 'DELIVERY':
