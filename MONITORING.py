@@ -25,10 +25,11 @@ elif CHOICE == 'ANC':
          
           back = conn.read(worksheet= 'BACK1', usecols=list(range(26)),ttl=5)
           back = back.dropna(how = 'all')
+          cola, colb = st.columns(2)         
           A = back.shape[0]
-          st.write(A)
+          cola.write(A)
           B = exist.shape[0]
-          st.write(B)
+          colb.write(B)
           df = pd.concat([back, exist])
           df['IS THIS HER PARENT FACILITY?'] = df['IS THIS HER PARENT FACILITY?'].astype(str)
           dfa = df[df['IS THIS HER PARENT FACILITY?']=='YES'].copy()
