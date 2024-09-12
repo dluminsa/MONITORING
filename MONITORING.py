@@ -28,8 +28,17 @@ elif CHOICE == 'ANC':
           A = back.shape[0]
           st.write(A)
           df = pd.concat([back, exist])
-          df['NAME'] = df['NAME'].astype(str)
-          df = df.drop_duplicates(subset = ['NAME'])
+          
+          dfs=[]
+          faci = df['HEALTH FACILITY'].unique()
+          for facility in faci:
+               df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
+               dfa = df[df['HEALTH FACILITY']==facility]
+               dfa['NAME'] = dfa['NAME'].astype(str)
+               dfa = dfa.drop_duplicates(subset = ['NAME'])
+               dfs.append(dfa)
+     df = pd.concat(dfs)
+               
                 #st.write('SEEN')
           #else:
            #     df = st.session_state['exist_de']
