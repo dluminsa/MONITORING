@@ -38,6 +38,7 @@ elif CHOICE == 'ANC':
                dfa = dfa.drop_duplicates(subset = ['NAME'])
                dfs.append(dfa)
           df = pd.concat(dfs)
+          dow = df.copy()
                
                 #st.write('SEEN')
           #else:
@@ -428,6 +429,7 @@ if CHOICE == 'ANC':
                     colc.write(str(KYOMBA))
                     cold.write(str(KYO))
                     cole.write(str(KYOM))
+                    st.write(dow)
                     st.stop()
 #st.divider()
 #st.writ
