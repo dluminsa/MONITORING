@@ -155,8 +155,8 @@ mona = ', '.join(fdf['MONTH'].unique())
 
 fdf['YEAR'] = fdf['YEAR'].astype(str)
 yeaa = ', '.join(fdf['YEAR'].unique())
-st.wr
-#faca = ', '.join(fdf['FACILITY'].unique())
+
+faca = ', '.join(fdf['FACILITY'].unique())
 
 total = fdf.shape[0]
 if exp==0:
