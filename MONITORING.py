@@ -54,8 +54,18 @@ elif CHOICE == 'ANC':
                dfas.append(dfx)
           dfb = pd.concat(dfas)
           df = pd.concat([dfa, dfb])
-          df['NAME'] = df['NAME'].astype(str)
-          df = df.drop_duplicates(subset = ['NAME'], keep='first')
+         
+          facy = df['HEALTH FACILITY'].unique()
+
+          dfc = []
+          for facility in facy:
+               df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
+               dfx = df[df['HEALTH FACILITY']==facility]
+               dfx['NAME'] = dfx['NAME'].astype(str)
+               dfx = dfx.drop_duplicates(subset = ['NAME'], keep='first')           
+               #dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
+               dfc.append(dfx)
+          df = pd.concat(dfc)
           dow = df.copy()
                
                 #st.write('SEEN')
