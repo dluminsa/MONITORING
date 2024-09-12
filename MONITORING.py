@@ -35,10 +35,10 @@ elif CHOICE == 'ANC':
                df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
                dfa = df[df['HEALTH FACILITY']==facility]
                dfa['NAME'] = dfa['NAME'].astype(str)
-               dfa = dfa.drop_duplicates(subset = ['NAME'])
+               dfa = dfa.drop_duplicates(subset = ['NAME'], keep='first')
                dfs.append(dfa)
           df = pd.concat(dfs)
-          dow = df.copy()
+     dow = df.copy()
                
                 #st.write('SEEN')
           #else:
