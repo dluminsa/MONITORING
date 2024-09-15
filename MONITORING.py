@@ -63,7 +63,7 @@ elif CHOICE == 'ANC':
           dfc = []
           for facility in facy:
                df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
-               dfx = df[df['HEALTH FACILITY']==facility]
+               dfx = df.loca[df['HEALTH FACILITY']==facility].copy()
                dfx['NAME'] = dfx['NAME'].astype(str)
                dfx = dfx.drop_duplicates(subset = ['NAME'], keep='first')           
                #dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
