@@ -39,7 +39,7 @@ elif CHOICE == 'ANC':
           faci = dfa['HEALTH FACILITY'].unique()
           for facility in faci:
                dfa['HEALTH FACILITY'] = dfa['HEALTH FACILITY'].astype(str)
-               dfx = df[df['HEALTH FACILITY']==facility]#
+               dfx = df[df['HEALTH FACILITY']==facility].copy()
                #dfx['ART No.'] = dfx['ART No.'].astype(str)
                dfx['ART No.'] = pd.to_numeric(dfx['ART No.'], errors = 'coerce')#.astype(int)
                dfx = dfx.drop_duplicates(subset = ['ART No.'], keep='first')
@@ -50,7 +50,7 @@ elif CHOICE == 'ANC':
           facy = dfb['HEALTH FACILITY'].unique()
           for facility in facy:
                dfb['HEALTH FACILITY'] = dfb['HEALTH FACILITY'].astype(str)
-               dfx = df[df['HEALTH FACILITY']==facility]
+               dfx = df[df['HEALTH FACILITY']==facility].copy()
                #dfx['UNIQUE ID'] = dfx['UNIQUE ID'].astype(str)
                dfx['UNIQUE ID'] = pd.to_numeric(dfx['UNIQUE ID'], errors = 'coerce')#.astype(int)
                dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
@@ -63,7 +63,7 @@ elif CHOICE == 'ANC':
           dfc = []
           for facility in facy:
                df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
-               dfx = df.loc[df['HEALTH FACILITY']==facility]#.copy()
+               dfx = df.loc[df['HEALTH FACILITY']==facility]
                dfx['NAME'] = dfx['NAME'].astype(str)
                dfx = dfx.drop_duplicates(subset = ['NAME'], keep='first')           
                #dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
