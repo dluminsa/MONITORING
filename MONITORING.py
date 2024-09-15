@@ -63,7 +63,7 @@ elif CHOICE == 'ANC':
           dfc = []
           for facility in facy:
                df['HEALTH FACILITY'] = df['HEALTH FACILITY'].astype(str)
-               dfx = df.loc[df['HEALTH FACILITY']==facility]
+               dfx = df[df['HEALTH FACILITY']==facility].copy()
                dfx['NAME'] = dfx['NAME'].astype(str)
                dfx = dfx.drop_duplicates(subset = ['NAME'], keep='first')           
                #dfx = dfx.drop_duplicates(subset = ['UNIQUE ID'], keep='first')
@@ -79,7 +79,7 @@ elif CHOICE == 'ANC':
           #df = st.session_state['exist_de'] 
     except Exception as e:
          st.write(f"An error occurred: {e}")
-         st.write("POOR NETWORK, COUDN'T CONNECT TO DATABASE")
+         st.write("POOR NETWORK, COULDN'T CONNECT TO DATABASE")
          st.stop()
 
 elif CHOICE == 'DELIVERY':
