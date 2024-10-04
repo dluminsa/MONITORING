@@ -113,6 +113,8 @@ file2 = r'BACKLOG.csv'
 dfa = pd.read_csv(file2)
 
 #df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
+st.write(df.columns)
+st.stop()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
 df['MONTH'] = df['DATEY'].dt.strftime('%B')
 df['YEAR'] = df['DATEY'].dt.year
