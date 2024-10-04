@@ -87,7 +87,7 @@ elif CHOICE == 'DELIVERY':
         #cola,colb= st.columns(2)
         st.write('**SHOWING DATA FROM DELIVERY DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
-        exist = conn.read(worksheet= 'DELIVERYA', usecols=list(range(25)),ttl=5)
+        exist = conn.read(worksheet= 'DELIVERYA', usecols=list(range(26)),ttl=5)
         df = exist.dropna(how='all')
         df = df.rename(columns={'DATE OF DELIVERY': 'DATEY'})
     except:
@@ -98,7 +98,7 @@ elif CHOICE == 'PCR':
         #cola,colb= st.columns(2)
         st.write('**SHOWING DATA FROM PCR DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
-        exist = conn.read(worksheet= 'PCRA', usecols=list(range(26)),ttl=5)
+        exist = conn.read(worksheet= 'PCRA', usecols=list(range(25)),ttl=5)
         df = exist.dropna(how='all')
         df = df.rename(columns={'DATE OF PCR': 'DATEY'})
     except:
