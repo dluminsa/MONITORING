@@ -98,7 +98,7 @@ elif CHOICE == 'PCR':
         #cola,colb= st.columns(2)
         st.write('**SHOWING DATA FROM PCR DATABASE**')
         conn = st.connection('gsheets', type=GSheetsConnection)
-        exist = conn.read(worksheet= 'PCRA', usecols=list(range(25)),ttl=5)
+        exist = conn.read(worksheet= 'PCRA', usecols=list(range(26)),ttl=5)
         df = exist.dropna(how='all')
         df = df.rename(columns={'DATE OF PCR': 'DATEY'})
     except:
@@ -113,8 +113,6 @@ file2 = r'BACKLOG.csv'
 dfa = pd.read_csv(file2)
 
 #df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
-st.write(df.columns)
-st.stop()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
 df['MONTH'] = df['DATEY'].dt.strftime('%B')
 df['YEAR'] = df['DATEY'].dt.year
