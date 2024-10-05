@@ -491,18 +491,18 @@ fdfa['DATEY'] = pd.to_datetime(fdfa['DATEY'], errors = 'coerce')
 fdfa['DAY'] = fdfa['DATEY'].dt.day
 fdfa = fdfa.sort_values(by = ['DATEY'])
 if CHOICE == 'ANC':
-     pass
-     #fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY','MONTH', 'YEAR', 'CODE']]
+     #fdfa = fdfa[['DISTRICT', 'FACILITY', 'DATEY','DAY','MONTH', 'YEAR', 'CODE']]
+     fdfa = fdfa.rename(columns = {'DATEY': 'ANC DATE'})
 elif CHOICE == 'PCR':
-     fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY', 'MONTH', 'YEAR']]
+     #fdfa = fdfa[['DISTRICT', 'FACILITY','DATEY', 'DAY', 'MONTH', 'YEAR']]
+     fdfa = fdfa.rename(columns = {'DATEY': 'PCR DATE'})
 elif CHOICE == 'DELIVERY':
-     fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY', 'MONTH', 'YEAR', 'OUTCOME']]
+     #fdfa = fdfa[['DISTRICT', 'FACILITY', 'DAY', 'MONTH', 'YEAR', 'OUTCOME']]
+     fdfa = fdfa.rename(columns = {'DATEY': 'DATE OF DELIVERY'})
 name = ','.join(siz)
-if len(siz)==1:    
+if len(siz)==1: 
+     fdfa = fdfa.drop(columns =['DATE OF SUBMISSION'])
      dat = fdfa.to_csv(index=False)
-     st.write(dat.columns)
-     #dat = dat.rename(columns= {'DATEY': 'ANC DATE'})
-     dat = dat.drop(columns =['DATE OF SUBMISSION'])
      st.download_button(
           label = '**DOWNLOAD THIS DATA**',
           data = dat,
