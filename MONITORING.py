@@ -114,6 +114,7 @@ dfa = pd.read_csv(file2)
 
 #df = df[['DISTRICT', 'FACILITY', 'DATEY']].copy()
 df['DATEY'] = pd.to_datetime(df['DATEY'], errors='coerce')
+df['DAY'] = df['DATEY'].dt.day
 df['MONTH'] = df['DATEY'].dt.strftime('%B')
 df['YEAR'] = df['DATEY'].dt.year
 
@@ -488,7 +489,7 @@ st.write(fdf)
 siz = fdfa['FACILITY'].unique()
 fdfa = fdfa.reset_index()
 fdfa['DATEY'] = pd.to_datetime(fdfa['DATEY'], errors = 'coerce')
-fdfa['DAY'] = fdfa['DATEY'].dt.day
+#fdfa['DAY'] = fdfa['DATEY'].dt.day
 fdfa = fdfa.sort_values(by = ['DATEY'])
 if CHOICE == 'ANC':
      #fdfa = fdfa[['DISTRICT', 'FACILITY', 'DATEY','DAY','MONTH', 'YEAR', 'CODE']]
