@@ -501,7 +501,7 @@ elif CHOICE == 'DELIVERY':
      fdfa = fdfa.rename(columns = {'DATEY': 'DATE OF DELIVERY'})
 name = ','.join(siz)
 if len(siz)==1: 
-     fdfa = fdfa.drop(columns =['DATE OF SUBMISSION'])
+     fdfa = fdfa.drop(columns =['DATE OF SUBMISSION', 'index'])
      dat = fdfa.to_csv(index=False)
      st.download_button(
           label = '**DOWNLOAD THIS DATA**',
