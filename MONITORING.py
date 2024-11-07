@@ -4,8 +4,8 @@ from streamlit_gsheets import GSheetsConnection
 import streamlit as st
 import time
 import datetime as dt
-st.write('BEING UPDATED FOR NOW')
-st.stop()
+# st.write('BEING UPDATED FOR NOW')
+# st.stop()
 #st.title("PMTCT DASHBOARD DATA ENTRY FORM")
 st.markdown("<h4><b>MONITORING ENTRIES DONE SO FAR</b></h4>", unsafe_allow_html=True)
 #st.stop()
